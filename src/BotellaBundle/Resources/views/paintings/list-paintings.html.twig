@@ -1,0 +1,68 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back">
+    <h1>liste des oeuvres</h1>
+    <div class="col-md-12">
+        {% for painting in listPaintings %}
+        <div class="well">
+            <div class="col-md-6">
+                <ul class="infos-painting">
+                    <li>- {{painting.id }} - Titre de l'euvre : {{ painting.title }}</li>
+                    <li>Hauteur : {{ painting.height }}</li>
+                    <li>Largeur : {{ painting.width }}</li>
+                    <li>Technique : {{ painting.technic }}</li>
+                    {% if not painting.series.empty %}
+                        {% for serie in painting.series %}
+                        <li>Serie : {{ serie.name }}</li>{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <a href="{{ path('painting_view', {id: painting.id}) }}">
+                    {% if painting.image is not null %}
+                    <img
+                    src="{{ asset(painting.image.webPath) }}"
+                    alt="{{ painting.image.alt }}"
+                    />
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{{ path('painting_edit', {'id': painting.id}) }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Modifier l'oeuvre
+                </a>
+                <a href="{{ path('painting_delete', {'id': painting.id}) }}" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Supprimer l'oeuvre
+                </a>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <a href="{{ path('painting_add') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+            Ajouter une oeuvre
+        </a>
+    </div>
+
+    <ul class="pagination">
+        {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+        {% for p in range(1, nbPages) %}
+        <li{% if p == page %} class="active"{% endif %}>
+            <a href="{{ path('painting_list', {'page': p}) }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</article>
+</section>
+{% endblock %}

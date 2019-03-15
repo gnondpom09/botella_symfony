@@ -1,0 +1,43 @@
+{% extends "BotellaBundle::layout.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h1>Detail article</h1>
+    <div class="col-md-4">
+        {# On vérifie qu'une image soit bien associée à l'article #}
+        {% if article.image is not null %}
+        <img
+        src="{{ asset(article.image.webPath) }}"
+        alt="{{ article.image.alt }}"
+        />
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+        <h3>{{ article.title }}</h3>
+        <div class="content-post">
+            {{ article.content }}
+        </div>
+        <a href="{{ path('botella_expositions') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+    </div>
+
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+</div>
+
+{% include 'BotellaBundle:blog:footer-page.html.twig' %}
+{% endblock %}

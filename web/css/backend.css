@@ -1,0 +1,94 @@
+/************* Back office ***************/
+h1, h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform: uppercase;
+  margin:0 0 20px 0;
+  border-bottom: 1px solid #333;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+ }
+.back-end {
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: column; /* affichage vertical */
+  min-height: 100vh; /* toute la hauteur du viewport (compatible IE9+) */
+}
+.header-back {
+
+}
+.back-wrapper {
+  display: block; /* IE fix */
+  flex: 1 1 auto; /* occupe la hauteur restante */
+  display: flex; /* crée un contexte flex pour ses enfants */
+  flex-direction: row; /* affichage horizontal */
+}
+.back-content {
+    flex: 1 1 auto;
+    min-height: 100vh;
+    overflow: auto;
+    background: #efeeee;
+}
+.o-content {
+
+    margin-top: 20px;
+    position: absolute;
+    top: 100px;
+    width: 96%;
+    margin: auto;
+    height: 100vh;
+}
+.o-content .cadre {
+    margin-bottom: 40px;
+}
+nav {
+  background-color: #1a1a1a;
+  overflow: hidden;
+  color: #fff;
+}
+.content {
+  display: block; /* IE fix */
+  flex: 1 1 auto; /* occupe la largeur restante */
+}
+
+.title {
+    background: #1a1a1a;
+    margin: 0;
+    font-size: 1.2em;
+    padding: 10px;
+    text-align: center;
+}
+section .btn {
+    margin: 10px 0;
+    width: 100%;
+}
+label {
+    color: #333 !important;
+    font-size: 1em;
+}
+.well {
+    overflow: hidden;
+    background: #333;
+    color: #fff !important;
+}
+.well label {
+    color: #fff !important;
+}
+.form-group {
+    font-size: 1em;
+    font-weight: 400;
+}
+.c-menu__items, .back-nav, .c-menu_items {
+    padding: 0;
+}
+.c-menu_item a {
+    padding: 4%;
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    background: #333;
+}
+.c-menu_item a:hover {
+    background: #83adde;
+}
+/************** boutons radio surcharge ***************/

@@ -1,0 +1,27 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h3>suppression serie</h3>
+
+    <div class="col-md-12">
+        <p>Etes vous certain de vouloir supprimer la serie {{ serie.name }}</p>
+        <form action="{{ path('serie_delete', {'id': serie.id}) }}" method="post">
+            <a href="{{ path('serie_list', {'id': serie.id}) }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour à la liste des séries
+            </a>
+            {# Ici j'ai écrit le bouton de soumission à la main #}
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    </div>
+</section>
+
+{% endblock %}

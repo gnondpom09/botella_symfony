@@ -1,0 +1,50 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h1>Detail article</h1>
+    <div class="medium-4 columns">
+        {# On vérifie qu'une image soit bien associée à l'article #}
+        {% if article.image is not null %}
+        <img
+        src="{{ asset(article.image.webPath) }}"
+        alt="{{ article.image.alt }}"
+        />
+        {% endif %}
+    </div>
+    <div class="medium-8 columns">
+        <h3>{{ article.title }}</h3>
+        <i>Par {{ article.author }}, le {{ article.date|date('d/m/Y') }}</i>
+        <div class="well">
+            {{ article.content }}
+        </div>
+        {% if not article.categories.empty %}
+        <p>
+            Cette annonce est parue dans les catégories suivantes :
+            {% for category in article.categories %}
+            {{ category.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% endif %}
+        <a href="{{ path('article_list') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('blog_edit', {'id': article.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier l'article
+        </a>
+        <a href="{{ path('blog_delete', {'id': article.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer l'article
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}

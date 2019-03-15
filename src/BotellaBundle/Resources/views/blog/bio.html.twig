@@ -1,0 +1,33 @@
+{% extends "BotellaBundle::layout.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded page">
+    <h1>Biographie</h1>
+    <div class="portrait col-xs-4">
+        <img class="size-medium wp-image-21 alignleft" src="{{ asset('uploads/img/portrait.jpeg') }}" alt="" width="252" height="300" />
+    </div>
+    <div class="bio">Né le 30 Juin 1974 à Nantes. Son apprentissage de la peinture a débuté en 1989 dans l’atelier de Maïthé Rovino à Aussonne suivi d’une année aux Beaux Arts de Toulouse. Le travail était ciblé sur la peinture à l’huile et le pastel. Le travail au fusain et au crayon a toujours été la base de son travail avant et après les cours. Inspiré par les impressionnistes et les esquisses des grands maîtres italiens, sa peinture est spontanée et structurée. Les compositions et les couleurs sont étudiés de manière à mettre en valeur le sujet. Le traitement inachevé des fonds et les effets de lumières dirigent l’œil vers les expressions, les attitudes et les émotions des personnages. Son but est de donner une impression de vie dans ses tableaux.
+        <br>
+        <hr>
+        <br>
+        <span class=""><em>"Fabulous transition from the surface of the paper that leads into the painting itself. The back-lit scene is phenomenal and accents the figure so exquisitely." – Informed Collector</em>
+        </span>
+    </div>
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+</div>
+
+{% include 'BotellaBundle:blog:footer-page.html.twig' %}
+{% endblock %}

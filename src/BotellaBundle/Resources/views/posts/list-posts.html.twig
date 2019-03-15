@@ -1,0 +1,15 @@
+
+    {% for article in listArticles %}
+    <div class="col-xs-4">
+        <div class="actu actu-home">
+            <h4>{{ article.title }}</h4>
+        </div>
+        <a href="{{ path('blog_view', { id: article.id }) }}" class="voir">
+            <button type="button" name="top">
+                <div class="content-button preview">
+                    <p>Voir</p>
+                </div>
+            </button>
+        </a>
+    </div>
+    {% endfor %}

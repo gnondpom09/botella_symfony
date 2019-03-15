@@ -1,0 +1,59 @@
+{% extends "BotellaBundle::layout-page.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded expo">
+    <h1>Contests</h1>
+    {% for article in listArticles %}
+        {% if not article.categories.empty %}
+            {% for category in article.categories %}
+                {% if category.name == "Stages" %}
+                <div class="well" style="overflow: hidden;">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            {% if article.image is not null %}
+                                <img
+                                src="{{ asset(article.image.webPath) }}"
+                                alt="{{ article.image.alt }}"
+                                />
+                            {% endif %}
+                        </div>
+                        <div class="col-md-9">
+                            <h3>{{ article.title }}</h3>
+                            <a href="{{ article.author }}" target="new" style="display: block; padding: 2%; background: #313030; color: #fff;">
+                                {{ article.content }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+
+    <ul class="pagination">
+        {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+        {% for p in range(1, nbPages) %}
+        <li{% if p == page %} class="active"{% endif %}>
+            <a href="{{ path('botella_contest', {'page': p}) }}">{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+</div>
+
+{% include 'BotellaBundle:blog:footer-page.html.twig' %}
+{% endblock %}

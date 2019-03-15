@@ -1,0 +1,16 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+    <article class="content-back cadre">
+        <h1>Ajout article</h1>
+        {{ include('BotellaBundle:posts:form.html.twig') }}
+        <p>Attention cet article sera ajouté directement sur la page d accueil apres validation du formulaire.</p>
+    </article>
+</section>
+{% endblock %}

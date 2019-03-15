@@ -1,0 +1,11 @@
+
+    {% for article in listArticles %}
+    <div class="single-post">
+        <a href="{{ path('blog_view', { id: article.id}) }}" class="single-post-link">
+            <h4>{{ article.title }}</h4>
+        </a>
+        <h5>Du 12 au 25 Mai</h5>
+        <p>Invité d'honneur - Halle Piquot Leguevin</p>
+    </div>
+    {% endfor %}
+    

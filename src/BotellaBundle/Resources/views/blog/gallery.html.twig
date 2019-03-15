@@ -1,0 +1,93 @@
+{% extends "BotellaBundle::layout.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+
+<section id="masonry_hybrid_demo3" class="cadre row expanded gallery">
+    <h1>Gallerie</h1>
+    <ul class="simplefilter">
+        <li class="active" data-filter="all">All</li>
+        {% for serie in listSeries %}
+        <li data-filter="{{ serie.id }}">{{ serie.name }}</li>
+        {% endfor %}
+    </ul>
+    <div class="filtr-container gallery">
+        {% for painting in listPaintings %}
+            {% if not painting.series.empty %}
+                {% for serie in painting.series %}
+        <div class="filtr-item col-xs-3 grid-item" data-category="{{ serie.id }}">
+            {% if painting.image is not null %}
+            <a href="{{ asset(painting.image.webPath) }}" class="{{ serie.name }} lightbox"
+                data-rel="lightcase:myCollection:slideshow">
+                <img src="{{ asset(painting.image.webPath) }}" alt="" />
+            </a>
+            {% endif %}
+    </div>
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+</div>
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+<div id="gallery" class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+
+{% include 'BotellaBundle:blog:footer-gallery.html.twig' %}
+{% endblock %}

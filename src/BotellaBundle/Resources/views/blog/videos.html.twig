@@ -1,0 +1,36 @@
+{% extends "BotellaBundle::layout.html.twig" %}
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section id="masonry_hybrid_demo3" class="cadre row expanded gallery">
+    <h1>Vidéos</h1>
+    <div class="filtr-container gallery">
+        <ul>
+            <li class="movie">
+                <video controls width="100%" class="col-xs-4">
+                    <source src="{{ asset('uploads/movies/demo_converted.mp4') }}" type="video/mp4">
+                </video>
+                <div class="col-xs-8">
+                    <h3>Stéphanie</h3>
+                    <h4>Demonstration portrait à l'huile</h4>
+                    <p>Peinture alla prima en une heure.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+</div>
+
+{% include 'BotellaBundle:blog:footer-page.html.twig' %}
+{% endblock %}

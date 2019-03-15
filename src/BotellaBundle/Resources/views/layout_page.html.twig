@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Laurent Botella{% endblock %}</title>
+
+    {% block stylesheets %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- style application -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+    {% endblock %}
+
+    <!-- Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Open+Sans+Condensed:300,300i,700|Open+Sans:300,300i,400,400i,600,600i,700,800" rel="stylesheet">
+
+    <!--JQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" charset="utf-8"></script>
+
+    <!-- Animation gallery  category -->
+    <link rel="stylesheet" href="{{ asset('css/gallery.css') }}" type="text/css">
+
+    <!-- StepForm -->
+    <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/demo.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/Component.css') }}" type="text/css">
+
+    <!-- lightbox -->
+    <link rel="stylesheet" href="{{ asset('css/simpleLightBox.css') }}">
+
+</head>
+<body>
+    <div id="section1" class="section-page">
+        <header>
+            <div id="logo" class="col-xs-3">
+                <a href="{{ path('botella_homepage') }}">
+                    <img src="{{asset('uploads/img/signature.png')}}" alt="logo">
+                </a>
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('blog_backoffice') }}">Backend</a>
+            {% endif %}
+            <nav class="menu-opener">
+                <div class="menu-opener-inner"></div>
+            </nav>
+            <nav class="menu">
+                <ul class="menu-inner">
+                    <a href="{{ path('botella_bio') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_gallery') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_videos') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-video-camera" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_expositions') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_contact') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+
+    {% block body %}
+    <!--contenu principal-->
+    {% endblock %}
+    </div>
+
+    <footer id="section5-bis" class="under enhance">
+        <div class="wrapper-footer">
+            <div class=" col-xs-12 social">
+                <a href="https://www.facebook.com/laurentbotellaartist/">
+                    <img src="{{ asset('uploads/img/facebook.jpg') }}" alt="">
+                </a>
+                <a href="https://instagram.com/laurentbotella/">
+                    <img src="{{ asset('uploads/img/instagram.jpg') }}" alt="">
+                </a>
+                <a href="https://twitter.com/laurentbotella">
+                    <img src="{{ asset('uploads/img/twiter.jpg') }}" alt="">
+                </a>
+                <a href="https://www.youtube.com/channel/UCPhwMWvem3Ef9wXD2MX54Nw" class="social icon youtube">
+                    <img src="{{ asset('uploads/img/youtube.jpg') }}" alt="">
+                </a>
+            </div>
+            <div class="col-xs-12">
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('botella_bio') }}">Biographie</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('botella_gallery') }}">Galerie</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('botella_videos') }}">Vidéos</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('botella_expositions') }}">Expositions</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('botella_contact') }}">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-12 credit">
+                <p>Crédit : <a href="https://www.linkedin.com/in/laurent-botella-9ba310125/" target="new">Laurent Botella</a> | Copyright © 2017 | <a href="{{ path('botella_legal') }}">Mentions légales</a></p>
+                <span>
+                    <p>Ressources : <a href="http://PixelBuddha.net" target="new">PixelBuddha.net</a></p>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    {% block javascripts %}
+        <script src="{{ asset('bundles/js/jquery.js')}}"></script>
+        <script src="{{ asset('bundles/js/foundation.min.js') }}"></script>
+        <script src="{{ asset('bundles/js/vendor/motion-ui.js') }}"></script>
+        <script src="{{ asset('bundles/js/vendor/what-input.js') }}"></script>
+        <script src="{{ asset('bundles/js/vendor/foundation.js') }}"></script>
+        <script src="{{ asset('bundles/js/app.js') }}"></script>
+
+        <script src="{{ asset('js/script.js') }}"></script>
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Portfolio -->
+    <script src="{{ asset('js/jquery.filterizr.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('js/gallery.js') }}" type="text/javascript" charset="utf-8"></script>
+
+    <!-- Stepform -->
+    <script src="{{ asset('js/modernizr.custom.js') }}"></script>
+    <script src="{{ asset('js/classie.js') }}"></script>
+    <script src="{{ asset('js/stepform.js') }}" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    $(function() {
+        //Initialize filterizr with default options
+        $('.filtr-container').filterizr();
+    });
+    </script>
+    <script>
+    var theForm = document.getElementById( 'theForm' );
+
+    new stepsForm( theForm, {
+        onSubmit : function( form ) {
+            // hide form
+            classie.addClass( theForm.querySelector( '.simform-inner' ), 'hide' );
+
+            /*
+            form.submit()
+            */
+
+            //var messageEl = theForm.querySelector( '.final-message' );
+            //messageEl.innerHTML = 'Merci pour votre message.';
+            //classie.addClass( messageEl, 'show' );
+        }
+    } );
+    </script>
+
+    <!-- Lightbox -->
+    <script src="{{ asset('js/jquery.events.touch.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/simplelightBox.js') }}" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('a[data-rel^=lightcase]').lightcase({
+                // options
+                transition: 'scrollHorizontal',
+                showSequenceInfo: false,
+                showTitle: false,
+                speedIn: 120,
+                speedOut:120,
+                swipe: true // modifier la vitesse
+            });
+        });
+    </script>
+
+
+</body>
+</html>

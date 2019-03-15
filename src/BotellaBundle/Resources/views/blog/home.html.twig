@@ -1,0 +1,75 @@
+
+
+{% extends "BotellaBundle::layout.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+
+{% block body %}
+
+<section class="cadre row expanded">
+    <div id="home" class="col-xs-8">
+        <h1>Laurent <span>Botella</span></h1>
+        <h2>Artiste Peintre</h2>
+        <div class="pastelliste">
+            <img src="{{ asset('uploads/img/pastelliste.png') }}" alt="">
+        </div>
+    </div>
+    <div class="col-xs-4" class="diaporama">
+        <img src="{{ asset('uploads/img/22.jpeg') }}" alt="painting">
+    </div>
+</section>
+<a href="#section3" class="top">
+    <button type="button" name="top">
+        <div class="content-button">
+            <p>Scroll</p><i class="fa fa-arrow-down" aria-hidden="true"></i>
+        </div>
+    </button>
+</a>
+</div>
+</div>
+<div id="section2" class="under">
+    <section class="row align-strech expanded">
+        <h2>Actualités</h2>
+
+        {{ render(controller('BotellaBundle:Article:list', {'limit': 3})) }}
+
+    </section>
+</div>
+<div id="section3" class="video">
+    <video autoplay loop style="margin: auto;">
+        <source src="{{ asset('uploads/movies/demo_tour.MOV') }}" type="video/mp4">
+    </video>
+    <div class="video-titre">
+        <h2>Decouvrez l'atelier</h2>
+        <a href="{{ path('botella_videos') }}">
+            <img src="{{asset('uploads/img/play.png')}}" alt="">
+        </a>
+    </div>
+</div>
+<div id="section4" class="container">
+    <section  id="advert"class="cadre row expanded">
+        <div class="col-xs-4 advert">
+            <h3>Painting</h3><span>News</span>
+            <a href="{{ path('botella_gallery') }}">Galerie</a>
+        </div>
+        <div class="col-xs-8">
+            <img src="{{asset('uploads/img/23.jpeg') }}" alt="painting">
+        </div>
+    </section>
+    <a href="#section1" class="top bottom">
+        <button type="button" name="bottom">
+            <div class="content-button">
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                <p>Top</p>
+            </div>
+        </button>
+    </a>
+</div>
+</div>
+
+{% include 'BotellaBundle:blog:footer.html.twig' %}
+{% endblock %}

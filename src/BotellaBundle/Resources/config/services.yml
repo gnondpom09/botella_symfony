@@ -1,0 +1,23 @@
+services:
+    botella.email.Comment_mailer:
+        class: BotellaBundle\Email\CommentMailer
+        arguments:
+            - "@mailer"
+
+    botella.doctrine_listener.comment_creation:
+        class: BotellaBundle\DoctrineListener\CommentCreationListener
+        arguments:
+            - "@botella.email.Comment_mailer"
+        tags:
+            - { name: doctrine.event_listener, event: postPersist }
+
+    botella.validator.antiflood:
+        class: BotellaBundle\Validator\AntifloodValidator
+        arguments: ["@request_stack", "@doctrine.orm.entity_manager"]
+        tags:
+            - { name: validator.constraint_validator, alias: botella_antiflood }
+
+    botella.email.contact_mailer:
+        class: BotellaBundle\Email\ContactMailer
+        arguments:
+            - "@mailer"

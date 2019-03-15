@@ -1,0 +1,41 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back">
+    <h1>Liste des serie</h1>
+    <ul>
+        {% for serie in listSeries %}
+        <div class="well">
+            <div class="col-md-6">
+                <li>{{ serie.name }}</li>
+            </div>
+            <div class="col-md-6">
+                <a href="{{ path('serie_edit', {'id': serie.id}) }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Modifier le titre de la série
+                </a>
+                <a href="{{ path('serie_delete', {'id': serie.id}) }}" class="btn btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Supprimer la série
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+    <div class="well">
+        <a href="{{ path('serie_add') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+            Ajouter une série
+        </a>
+
+    </div>
+
+</article>
+</section>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h3>suppression de vidéo</h3>
+    <p>Etes vous certain de vouloir supprimer la vidéo {{ movie.title }}</p>
+    <div class="col-md-12">
+        <form action="{{ path('movie_delete', {'id': movie.id}) }}" method="post">
+            <a href="{{ path('list_movies')}}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour à la liste
+            </a>
+
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+
+            {{ form_rest(form) }}
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back cadre">
+    <h1>Modifier une oeuvre</h1>
+
+    {{ include("BotellaBundle:paintings:form-painting.html.twig") }}
+
+    <p>
+        <a href="{{ path('painting_list')}}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('painting_view', {'id': painting.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à l'oeuvre
+        </a>
+    </p>
+</article>
+</section>
+{% endblock %}

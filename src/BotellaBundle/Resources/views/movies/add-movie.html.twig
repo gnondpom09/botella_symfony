@@ -1,0 +1,66 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back cadre">
+    <h1>Ajouter une video</h1>
+
+
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.title, "Titre de la video", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.title) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.legend, "Légende", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.title) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.legend, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.content, "Contenu", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.title) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.url, "Url", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_errors(form.title) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.url, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    </div>
+
+
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+
+
+    <a href="{{ path('list_movies')}}" class="btn btn-default">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Retour à la liste
+    </a>
+</article>
+</section>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h3>suppression oeuvre</h3>
+    <p>Etes vous certain de vouloir supprimer l'oeuvre {{ painting.title }}</p>
+    <div class="col-md-2">
+        {% if painting.image is not null %}
+        <img
+        src="{{ asset(painting.image.webPath) }}"
+        alt="{{ painting.image.alt }}"
+        />
+        {% endif %}
+    </div>
+    <div class="col-md-10">
+        <form action="{{ path('painting_delete', {'id': painting.id}) }}" method="post">
+            <a href="{{ path('painting_list')}}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour à la liste
+            </a>
+            <a href="{{ path('painting_view', {'id': painting.id}) }}" class="btn btn-default">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Retour au détail de l'oeuvre
+            </a>
+            {# Ici j'ai écrit le bouton de soumission à la main #}
+            <input type="submit" value="Supprimer" class="btn btn-danger" />
+            {# Ceci va générer le champ CSRF #}
+            {{ form_rest(form) }}
+        </form>
+    </div>
+</section>
+
+{% endblock %}

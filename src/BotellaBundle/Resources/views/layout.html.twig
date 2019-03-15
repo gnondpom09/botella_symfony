@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Laurent Botella{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ asset('uploads/img/fav.jpg') }}">
+
+    {% block stylesheets %}
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- style application -->
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css" />
+    {% endblock %}
+    <!-- fonts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Open+Sans+Condensed:300,300i,700|Open+Sans:300,300i,400,400i,600,600i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('fonts/Brownhill-Script') }}">
+    <!-- lightbox -->
+    <link rel="stylesheet" href="{{ asset('css/simpleLightBox.css') }}">
+    <!-- Animation gallery  category -->
+    <link rel="stylesheet" href="{{ asset('css/gallery.css') }}" type="text/css">
+    <!-- StepForm -->
+    <link rel="stylesheet" href="{{ asset('css/demo.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/component.css') }}" type="text/css">
+
+
+    <!--JQuery-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" charset="utf-8"></script>
+
+    <!-- Loader -->
+    <script>jQuery(window).load(function(){ jQuery(".loader").fadeOut("200"); });</script>
+
+</head>
+<body id="homepage">
+
+    <div class="loader progress">
+        <div class="indeterminate" style="width: 50%;"></div>
+    </div>
+
+    <div id="section1" class="">
+        <header>
+            <div id="logo" class="col-xs-3">
+                <a href="{{ path('botella_homepage') }}">
+                    <img src="{{asset('uploads/img/signature.png')}}" alt="logo">
+                </a>
+            </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('blog_backoffice') }}">Backend</a>
+            {% endif %}
+            <nav class="menu-opener">
+                <div class="menu-opener-inner"></div>
+            </nav>
+            <nav class="menu">
+                <ul class="menu-inner">
+                    <a href="{{ path('botella_bio') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_gallery') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_videos') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-video-camera" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_expositions') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_contest') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                    <a href="{{ path('botella_contact') }}" class="menu-link">
+                        <li>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                        </li>
+                    </a>
+                </ul>
+            </nav>
+        </header>
+
+        {% block body %}
+        <!--contenu principal-->
+        {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" charset="utf-8"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <!-- Portfolio -->
+    <script src="{{ asset('js/jquery.filterizr.min.js') }}" type="text/javascript" charset="utf-8"></script>
+    <script src="{{ asset('js/gallery.js') }}" type="text/javascript" charset="utf-8"></script>
+    <!-- Stepform -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js" charset="utf-8"></script>
+    <script src="{{ asset('js/stepform.js') }}" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    $(function() {
+        //Initialize filterizr with default options
+        $('.filtr-container').filterizr();
+    });
+    </script>
+
+    <!-- Lightbox -->
+    <script src="{{ asset('js/jquery.events.touch.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/simplelightBox.js') }}" charset="utf-8"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $('a[data-rel^=lightcase]').lightcase({
+                // options
+                transition: 'scrollHorizontal',
+                showSequenceInfo: false,
+                showTitle: false,
+                swipe: true // modifier la vitesse
+            });
+        });
+    </script>
+
+    {% block javascripts %}
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/modernizr.custom.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/classie.js') }}" charset="utf-8"></script>
+    <script src="{{ asset('js/stepform.js') }}" charset="utf-8"></script>
+    {% endblock %}
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="{{ asset('css/simplewizard.js') }}"></script>
+
+
+
+</body>
+</html>

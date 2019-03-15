@@ -1,0 +1,42 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back">
+    <h1>liste des vidéos</h1>
+    <div class="col-md-12">
+        {% for movie in listMovies %}
+            <div class="well">
+                <div class="col-md-8">
+                    <ul class="infos-painting">
+                        <li>- {{movie.id }} - Titre de la vidéo : {{ movie.title }}</li>
+                        <li>Légende : {{ movie.legend }}</li>
+                        <li>url : {{ movie.url }}</li>
+
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ path('movie_edit', {'id': movie.id}) }}" class="btn btn-default">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        Modifier la vidéo
+                    </a>
+                    <a href="{{ path('movie_delete', {'id': movie.id}) }}" class="btn btn-danger">
+                        <i class="glyphicon glyphicon-trash"></i>
+                        Supprimer la vidéo
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        <a href="{{ path('movie_add') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-plus"></i>
+            Ajouter une vidéo
+        </a>
+    </div>
+</article>
+</section>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <h1>Detail de l'oeuvre</h1>
+    <div class="col-md-4">
+        {# On vérifie qu'une image soit bien associée à l'article #}
+        {% if painting.image is not null %}
+        <img
+        src="{{ asset(painting.image.webPath) }}"
+        alt="{{ painting.image.alt }}"
+        />
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+        <h3>{{ painting.title }}</h3>
+        <h4>Dimensions</h4>
+        <p>Hauteur : {{ painting.height }} <br> Largeur : {{ painting.width }}</p>
+        <div class="well">
+            <h4>Technique </h4>
+            {{ painting.technic }}
+        </div>
+        {% if not painting.series.empty %}
+        <p>
+            Cette oeuvre est parue dans la série suivante :
+            {% for serie in painting.series %}
+            {{ serie.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        {% endif %}
+        <a href="{{ path('painting_list')}}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('painting_edit', {'id': painting.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier l'oeuvre
+        </a>
+        <a href="{{ path('painting_delete', {'id': painting.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer l'oeuvre
+        </a>
+    </div>
+
+</section>
+</div>
+
+{% include 'BotellaBundle:blog:footer-page.html.twig' %}
+{% endblock %}

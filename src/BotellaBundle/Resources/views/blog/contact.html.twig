@@ -1,0 +1,73 @@
+
+{% extends "BotellaBundle::layout_page.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+    <style media="screen">
+        form {
+            width: 50%;
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        #contact_save {
+            margin-top: 20px;
+            width: 100%;
+        }
+        textarea.form-control {
+            height: 50px;
+            line-height: 40px;
+
+        }
+    </style>
+    <h1>Contact</h1>
+    {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        {{ form_widget(form.lastname, { 'attr': {'class': 'input__field input__field--yoko'} }) }}
+        <label class="input__label input__label--yoko" for="input-16">
+            <span class="input__label-content input__label-content--yoko">Nom</span>
+        </label>
+        {{ form_widget(form.firstname, { 'attr': {'class': 'input__field input__field--yoko'} }) }}
+        <label class="input__label input__label--yoko" for="input-16">
+            <span class="input__label-content input__label-content--yoko">Prénom</span>
+        </label>
+        {{ form_widget(form.email, { 'attr': {'class': 'input__field input__field--yoko'} }) }}
+        <label class="input__label input__label--yoko" for="input-16">
+            <span class="input__label-content input__label-content--yoko">Email</span>
+        </label>
+        {{ form_widget(form.subject, { 'attr': {'class': 'input__field input__field--yoko'} }) }}
+        <label class="input__label input__label--yoko" for="input-16">
+            <span class="input__label-content input__label-content--yoko">Sujet</span>
+        </label>
+        <div class="message" style="">
+            {{ form_widget(form.message, { 'attr': {'class': 'input__field input__field--yoko'} }) }}
+            <label class="input__label input__label--yoko" for="input-16">
+                <span class="input__label-content input__label-content--yoko">Message</span>
+            </label>
+        </div>
+
+
+        {{ form_row(form.save, { 'label': 'Envoyer' }) }}
+    {{ form_end(form) }}
+
+    <form class="" action="traitment.php" method="post">
+
+    </form>
+
+</section>
+<a href="#section1" class="top bottom">
+    <button type="button" name="bottom">
+        <div class="content-button">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <p>Top</p>
+        </div>
+    </button>
+</a>
+</div>
+
+{% endblock %}

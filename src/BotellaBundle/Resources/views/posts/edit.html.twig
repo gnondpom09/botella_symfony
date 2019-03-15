@@ -1,0 +1,28 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<section class="cadre row expanded">
+
+    <h3>Modifier un article</h3>
+
+    {{ include("BotellaBundle:posts:form.html.twig") }}
+
+    <p>
+        <a href="{{ path('article_list') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('article_view', {'id': article.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à l'article
+        </a>
+    </p>
+
+</section>
+
+{% endblock %}

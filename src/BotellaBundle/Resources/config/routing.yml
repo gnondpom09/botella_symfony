@@ -1,0 +1,164 @@
+# Pages
+
+botella_homepage:
+    path:     /
+    defaults:
+      _controller: BotellaBundle:Default:index
+
+botella_bio:
+    path: /biography
+    defaults:
+        _controller: BotellaBundle:Default:biography
+
+botella_gallery:
+    path: /gallery
+    defaults:
+        _controller: BotellaBundle:Painting:gallery
+
+botella_videos:
+    path: /videos
+    defaults:
+        _controller: BotellaBundle:Movie:gallery
+
+botella_expositions:
+    path: /expositions/{page}
+    defaults:
+        _controller: BotellaBundle:Article:menu
+        page: 1
+        requirements:
+            page: \d*
+
+botella_contest:
+    path: /contests
+    defaults:
+        _controller: BotellaBundle:Article:contest
+        page: 1
+        requirements:
+            page: \d*
+
+botella_contact:
+    path: /contact
+    defaults:
+        _controller: BotellaBundle:Default:contact
+
+# Detail article front
+blog_view:
+    path:      /article/{id}
+    defaults:  { _controller: BotellaBundle:Article:view }
+    requirements:
+        id: \d+
+
+botella_legal:
+    path: /mentions_legales
+    defaults:
+        _controller: BotellaBundle:Default:legal
+
+########################### Backend #####################
+
+blog_backoffice:
+    path: /back
+    defaults: { _controller: BotellaBundle:Default:menuback }
+# Ajout article
+blog_add:
+    path:      /back/add
+    defaults:  { _controller: BotellaBundle:Article:add }
+# Modification article
+blog_edit:
+    path:      /back/edit/{id}
+    defaults:  { _controller: BotellaBundle:Article:edit }
+    requirements:
+        id: \d+
+# Suppression article
+blog_delete:
+    path:      /back/delete/{id}
+    defaults:  { _controller: BotellaBundle:Article:delete }
+    requirements:
+        id: \d+
+# List articles back-end
+article_list:
+    path: /back/list_articles/{page}
+    defaults:
+        _controller: BotellaBundle:Article:listPosts
+        page: 1
+        requirements:
+            page: \d*
+# Detail article back-end
+article_view:
+    path: /back/article/{id}
+    defaults: { _controller:BotellaBundle:Article:detailPost }
+    requirements:
+        id: \d*
+
+painting_list:
+    path: /back/list_paintings/{page}
+    defaults:
+        _controller: BotellaBundle:Painting:listPaintings
+        page: 1
+        requirements:
+            page: \d*
+
+painting_view:
+    path: /back/{id}
+    defaults: { _controller: BotellaBundle:Painting:view }
+    requirements:
+        id: \d+
+
+painting_add:
+    path: /back/add_painting
+    defaults: { _controller: BotellaBundle:Painting:add }
+
+painting_edit:
+    path: /back/edit_painting/{id}
+    defaults: { _controller: BotellaBundle:Painting:edit }
+    requirements:
+        id: \d+
+
+painting_delete:
+    path: /back/delete_painting/{id}
+    defaults: { _controller: BotellaBundle:Painting:delete }
+    requirements:
+        id: \d+
+
+serie_list:
+    path: /back/series
+    defaults: { _controller: BotellaBundle:Painting:listSeries }
+
+serie_add:
+    path: /back/add_serie
+    defaults: { _controller: BotellaBundle:Painting:addSerie }
+
+serie_edit:
+    path: /back/edit_serie/{id}
+    defaults: { _controller: BotellaBundle:Painting:editSerie }
+    requirements:
+        id: \d+
+
+serie_delete:
+    path: /back/delete_serie/{id}
+    defaults: { _controller: BotellaBundle:Painting:deleteSerie }
+    requirements:
+        id: \d+
+
+movie_add:
+    path: /back/add_movie
+    defaults: { _controller: BotellaBundle:Movie:add }
+
+movie_delete:
+    path: /back/delete_movie/{id}
+    defaults: { _controller: BotellaBundle:Movie:delete }
+    requirements:
+        id: \d+
+
+list_movies:
+    path: /back/movies
+    defaults:
+        _controller: BotellaBundle:Movie:listMovies
+        page: 1
+        requirements:
+            \d*
+
+movie_edit:
+    path: /back/edit_movie/{id}
+    defaults: { _controller: BotellaBundle:Movie:editMovie }
+    requirements:
+        id: \d+

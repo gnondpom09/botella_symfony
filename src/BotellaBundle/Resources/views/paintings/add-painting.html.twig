@@ -1,0 +1,23 @@
+{% extends "BotellaBundle::layout_back.html.twig" %}
+
+
+{% block title %}
+Galerie - {{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+<article class="content-back cadre">
+    <h1>Ajouter une oeuvre</h1>
+
+
+    {{ include("BotellaBundle:paintings:form-painting.html.twig") }}
+
+
+    <a href="{{ path('painting_list')}}" class="btn btn-default">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Retour à la liste
+    </a>
+</article>
+</section>
+{% endblock %}
